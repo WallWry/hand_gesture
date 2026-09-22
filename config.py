@@ -62,3 +62,21 @@ THUMB_SPREAD_RATIO = 0.25
 # So frame LIEN TIEP phai cung mot cu chi truoc khi thuc su gui lenh cho
 # robot - tranh giat lenh khi cu chi dang chuyen tiep giua 2 trang thai.
 GESTURE_CONFIRM_FRAMES = 5
+
+# ==== An toan ====
+# So frame LIEN TIEP khong thay tay nao (khac voi "thay tay nhung cu chi
+# mo ho") truoc khi ROBOT TU DUNG, bat ke lenh truoc do la gi. Day la co
+# che fail-safe: neu dang FORWARD ma nguoi dieu khien buoc ra khoi khung
+# hinh/che khuat hoan toan tay, khong duoc de robot "giu nguyen lenh cu"
+# va tiep tuc tien vo thoi han - phai chu dong dung lai khi mat tin hieu
+# dieu khien. ~15 frame (~0.5-1s o 15-30fps) - du ngan de an toan, du dai
+# de khong dung nham vi 1-2 frame mat tay thoang qua (rung tay, chop mat
+# webcam).
+NO_HAND_STOP_FRAMES = 15
+
+# So lan doc frame tu webcam that bai LIEN TIEP truoc khi dung han chuong
+# trinh (thay vi dung ngay o lan doc that bai dau tien - webcam USB thinh
+# thoang drop 1 frame la binh thuong, khong nen lam robot mat hoan toan
+# tin hieu dieu khien chi vi 1 frame loi thoang qua). Cung gia tri va ly
+# do nhu MAX_CAMERA_READ_RETRIES trong camera_distance_estimation.
+MAX_CAMERA_READ_RETRIES = 30
