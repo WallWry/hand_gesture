@@ -48,7 +48,16 @@ MIN_CURLED_FOR_FIST = 3
 # gesture_detector.thumb_spread_ratio(). Bat buoc them dieu kien nay cho
 # OPEN_PALM de phan biet voi "gio 4 ngon, giau ngon cai" (truoc day 2
 # truong hop nay giong het nhau vi ngon cai khong duoc xet).
-THUMB_SPREAD_RATIO = 0.5
+#
+# 0.5 la gia tri DOAN ban dau (chua co du lieu tay that de hieu chinh) va
+# qua khat khe trong thuc te: xoe tay binh thuong (ngon cai khong giau
+# nhung cung khong dang ra het co) khong dat toi ty le nay -> OPEN_PALM
+# khong bao gio duoc nhan, mat tin hieu FORWARD. Ha xuong 0.25 de uu tien
+# KHONG chan nham cu chi xoe tay that (van du de phan biet voi ngon cai
+# giau han vao long ban tay). Neu van chua dung, xem gia tri "thumb_ratio"
+# hien tren man hinh (main.py) luc xoe tay that vs luc giau ngon cai, roi
+# chon nguong nam giua 2 gia tri do cho chinh xac.
+THUMB_SPREAD_RATIO = 0.25
 
 # So frame LIEN TIEP phai cung mot cu chi truoc khi thuc su gui lenh cho
 # robot - tranh giat lenh khi cu chi dang chuyen tiep giua 2 trang thai.
