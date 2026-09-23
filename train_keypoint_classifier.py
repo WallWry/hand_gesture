@@ -9,12 +9,16 @@ Dau vao: config.KEYPOINT_DATASET_PATH (csv khong header: cot 0 = class id,
 vector). Dau ra: config.KEYPOINT_MODEL_PATH (KeypointClassifier trong
 keypoint_classifier.py nap file nay de suy luan).
 
-Model la MLPClassifier (mang no-ron nhieu lop) NHO cua scikit-learn - du
-nhe de chay realtime tren CPU o main.py, nhung hoc duoc duong bien phan
-loai phi tuyen tu du lieu that thay vi phai doan nguong thu cong nhu cach
-lam cu (xem gesture_detector.py). early_stopping=True de tu dung som neu
-do chinh xac tren tap validation noi bo (trich tu train set) khong con cai
-thien - tranh hoc thuoc long (overfit) khi du lieu thu thap con it.
+Model la RandomForestClassifier cua scikit-learn - phu hop voi dataset nho
+(vai tram mau thu bang tay) hon MLPClassifier: khong can tinh chinh so lan
+lap/early-stopping (voi dataset nho, MLPClassifier + early_stopping=True se
+tu trich ~10% train set lam validation noi bo - qua it mau de danh gia dang
+tin cay, de dung training qua som, model chua kip hoc gi ma van "coi nhu
+hoi tu" - day la nguyen nhan chinh khien 1 lan chay truoc chi dat ~56%
+accuracy du bai toan xoe/nam tay de phan biet). RandomForest on dinh hon
+nhieu trong dieu kien it du lieu vi hoc tung cay quyet dinh doc lap tren
+tap con du lieu/dac trung roi lay da so, khong phu thuoc mot lan hoi tu
+gradient duy nhat.
 """
 
 import csv
@@ -22,9 +26,9 @@ import os
 
 import joblib
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
-from sklearn.neural_network import MLPClassifier
 
 import config
 
@@ -77,11 +81,9 @@ def main():
         X, y, test_size=0.25, random_state=42, stratify=y
     )
 
-    model = MLPClassifier(
-        hidden_layer_sizes=(20, 10),
-        activation="relu",
-        max_iter=2000,
-        early_stopping=True,
+    model = RandomForestClassifier(
+        n_estimators=200,
+        max_depth=10,  # gioi han do sau - tranh 1 cay hoc thuoc long tung mau khi dataset nho
         random_state=42,
     )
     model.fit(X_train, y_train)

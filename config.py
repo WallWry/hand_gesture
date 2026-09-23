@@ -44,6 +44,21 @@ KEYPOINT_LABEL_PATH = "model/keypoint_classifier_label.csv"
 # chuyen tiep giua 2 trang thai.
 CLASSIFIER_CONFIDENCE_THRESHOLD = 0.8
 
+# ==== Thu du lieu (collect_landmark_data.py) ====
+# Moi lan bam 1 phim so, script GHI LIEN TUC trong BURST_CAPTURE_SECONDS
+# giay thay vi chi ghi 1 frame tinh - nguoi thu giu nguyen cu chi nhung CHU
+# DONG di chuyen tay (xoay/nghieng/gan-xa/trai-phai) trong luc do, nho vay
+# 1 lan bam tao ra hang chuc mau DA DANG thay vi phai bam tay hang tram
+# lan. Xem huong dan chi tiet trong docstring collect_landmark_data.py.
+BURST_CAPTURE_SECONDS = 4.0
+
+# Chi ghi 1 frame moi BURST_SAMPLE_EVERY_N_FRAMES frame trong luc ghi lien
+# tuc (khong ghi ca 30fps) - tranh qua nhieu mau GAN TRUNG NHAU (2 frame
+# lien tiep o 30fps gan nhu giong het nhau, khong them thong tin gi cho
+# model ma chi lam file du lieu phinh to). ~10 mau/giay o 30fps la du day
+# ma van bat duoc chuyen dong cua tay trong luc ghi.
+BURST_SAMPLE_EVERY_N_FRAMES = 3
+
 # So frame LIEN TIEP phai cung mot cu chi truoc khi thuc su gui lenh cho
 # robot - tranh giat lenh khi cu chi dang chuyen tiep giua 2 trang thai.
 GESTURE_CONFIRM_FRAMES = 5
