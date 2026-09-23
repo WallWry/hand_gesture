@@ -1,7 +1,6 @@
 __pycache__/
 *.pyc
 hand_landmarker.task
-
 # Du lieu landmark tu thu + model tu train - gan voi tay/anh sang/camera
 # cua tung nguoi dung cu the, khong nen commit chung; moi nguoi tu chay
 # collect_landmark_data.py + train_keypoint_classifier.py de tao rieng
