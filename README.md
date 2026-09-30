@@ -111,14 +111,6 @@ python main.py
 - `NO_HAND_STOP_FRAMES` — số frame mất tay liên tiếp trước khi robot tự
   dừng an toàn.
 
-## Kết nối robot thật
-
-`robot_controller.py` hiện **chưa kết nối robot thật** (Omron LD-90), chỉ
-in lệnh `FORWARD`/`STOP` ra console để dev/test không cần robot. Khi có
-API/SDK thật của robot (HTTP REST, ROS Twist message...), chỉ cần sửa 2
-hàm `_send_forward()` và `_send_stop()` trong file này — phần còn lại của
-chương trình không cần đổi gì.
-
 ## Xử lý sự cố
 
 | Vấn đề | Cách xử lý |
