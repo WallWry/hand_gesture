@@ -127,3 +127,5 @@ chương trình không cần đổi gì.
 | `RuntimeError: Khong tim thay model '...'` khi chạy `main.py` | Chưa chạy Bước 2 + Bước 3 ở trên |
 | Accuracy thấp sau khi train | Thu thêm dữ liệu đa dạng hơn (nhiều góc xoay/khoảng cách/ánh sáng) rồi train lại, xem hướng dẫn trong `collect_landmark_data.py` |
 | Robot phản ứng chậm/giật khi đổi cử chỉ | Tăng `GESTURE_CONFIRM_FRAMES` trong `config.py` |
+
+Signed
